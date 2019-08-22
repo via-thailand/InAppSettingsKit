@@ -463,4 +463,8 @@
 	return [_specifierDict objectForKey:kIASKDisabledKey];
 }
 
+- (NSString *)headerImageName {
+	return [_specifierDict objectForKey:kIASKHeaderImageName];
+}
+
 @end

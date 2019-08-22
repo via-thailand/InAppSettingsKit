@@ -74,4 +74,5 @@
 - (NSArray *)userInterfaceIdioms;
 - (NSString *)radioGroupValue;
 - (NSString *)disabledKey;
+- (NSString *)headerImageName;
 @end
