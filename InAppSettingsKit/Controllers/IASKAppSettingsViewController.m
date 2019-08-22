@@ -560,11 +560,11 @@ CGRect IASKCGRectSwap(CGRect rect);
 	}
 	
 	UITableViewCell* cell = [self tableView:tableView newCellForSpecifier:specifier];
-
+	
 	if ([specifier.type isEqualToString:kIASKPSToggleSwitchSpecifier]) {
 		cell.textLabel.text = specifier.title;
 		cell.detailTextLabel.text = specifier.subtitle;
-
+		
 		id currentValue = [self.settingsStore objectForKey:specifier.key];
 		BOOL toggleState;
 		if (currentValue) {
@@ -581,6 +581,10 @@ CGRect IASKCGRectSwap(CGRect rect);
 		IASKSwitch *toggle = (IASKSwitch*)cell.accessoryView;
 		toggle.on = toggleState;
 		toggle.key = specifier.key;
+		
+		BOOL isDisabled = [[self.settingsStore objectForKey:specifier.disabledKey] boolValue];
+		toggle.enabled = !isDisabled;
+		
 	}
 	else if ([specifier.type isEqualToString:kIASKPSMultiValueSpecifier]) {
 		cell.textLabel.text = specifier.title;

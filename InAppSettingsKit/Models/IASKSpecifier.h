@@ -73,4 +73,5 @@
 - (NSTextAlignment)textAlignment;
 - (NSArray *)userInterfaceIdioms;
 - (NSString *)radioGroupValue;
+- (NSString *)disabledKey;
 @end

@@ -21,6 +21,8 @@
 			<string>TOGGLE_SWITCH</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
+			<key>IASKDisabledKey</key>
+			<string>isToggleDisabled</string>
 		</dict>
 		<dict>
 			<key>Title</key>

@@ -458,4 +458,9 @@
 - (id)valueForKey:(NSString *)key {
 	return [_specifierDict objectForKey:key];
 }
+	
+- (NSString *)disabledKey {
+	return [_specifierDict objectForKey:kIASKDisabledKey];
+}
+
 @end
