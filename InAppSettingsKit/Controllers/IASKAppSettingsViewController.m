@@ -560,6 +560,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 	}
 	
 	UITableViewCell* cell = [self tableView:tableView newCellForSpecifier:specifier];
+	cell.contentView.alpha = 1;
 	
 	if ([specifier.type isEqualToString:kIASKPSToggleSwitchSpecifier]) {
 		cell.textLabel.text = specifier.title;
@@ -585,6 +586,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 		if (specifier.disabledKey != nil) {
 			BOOL isDisabled = [[self.settingsStore objectForKey:specifier.disabledKey] boolValue];
 			toggle.enabled = !isDisabled;
+			cell.contentView.alpha = 0.4;
 		}
 	}
 	else if ([specifier.type isEqualToString:kIASKPSMultiValueSpecifier]) {
