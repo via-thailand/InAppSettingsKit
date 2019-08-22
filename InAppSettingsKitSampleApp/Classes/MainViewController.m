@@ -151,9 +151,14 @@ shouldPresentMailComposeViewController:(MFMailComposeViewController*)mailCompose
                         tableView:(UITableView *)tableView
         heightForHeaderForSection:(NSInteger)section {
     NSString *key = [settingsViewController.settingsReader keyForSection:section];
+	NSString *headerImageName = [settingsViewController.settingsReader headerSpecifierForSection:section].headerImageName;
     if ([key isEqualToString:@"IASKLogo"]) {
         return [UIImage imageNamed:@"Icon.png"].size.height + 25;
-    } else if ([key isEqualToString:@"IASKCustomHeaderStyle"]) {
+	}
+	else if (headerImageName != nil) {
+		return [UIImage imageNamed:headerImageName].size.height + 10;
+	}
+	else if ([key isEqualToString:@"IASKCustomHeaderStyle"]) {
         return 55.f;
     }
     return 0;
@@ -162,6 +167,20 @@ shouldPresentMailComposeViewController:(MFMailComposeViewController*)mailCompose
 - (UIView *)settingsViewController:(id<IASKViewController>)settingsViewController
                          tableView:(UITableView *)tableView 
            viewForHeaderForSection:(NSInteger)section {
+	
+	NSString *headerImageName = [settingsViewController.settingsReader headerSpecifierForSection:section].headerImageName;
+	
+	if (headerImageName != nil) {
+		UIImage *image = [UIImage imageNamed:headerImageName];
+		UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 5, image.size.width, image.size.height)];
+		imageView.image = image;
+		imageView.contentMode = UIViewContentModeCenter;
+		UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, image.size.height + 10)];
+		view.backgroundColor = [UIColor clearColor];
+		[view addSubview:imageView];
+		return view;
+	}
+	
     NSString *key = [settingsViewController.settingsReader keyForSection:section];
     if ([key isEqualToString:@"IASKLogo"]) {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Icon.png"]];

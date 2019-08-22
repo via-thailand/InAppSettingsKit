@@ -11,6 +11,8 @@
 			<string>TOGGLE_SWITCH_TITLE</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
+            <key>IASKHeaderImageName</key>
+            <string>icFanOutlined</string>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
@@ -29,6 +31,18 @@
 			<string>MUL_VALUE_TITLE</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>DefaultValue</key>
+			<string>YES</string>
+			<key>Key</key>
+			<string>toggleSwitch</string>
+			<key>Title</key>
+			<string>TOGGLE_SWITCH</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>IASKDisabledKey</key>
+			<string>isToggleDisabled</string>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
