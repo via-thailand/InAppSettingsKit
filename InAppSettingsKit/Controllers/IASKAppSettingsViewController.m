@@ -582,9 +582,10 @@ CGRect IASKCGRectSwap(CGRect rect);
 		toggle.on = toggleState;
 		toggle.key = specifier.key;
 		
-		BOOL isDisabled = [[self.settingsStore objectForKey:specifier.disabledKey] boolValue];
-		toggle.enabled = !isDisabled;
-		
+		if (specifier.disabledKey != nil) {
+			BOOL isDisabled = [[self.settingsStore objectForKey:specifier.disabledKey] boolValue];
+			toggle.enabled = !isDisabled;
+		}
 	}
 	else if ([specifier.type isEqualToString:kIASKPSMultiValueSpecifier]) {
 		cell.textLabel.text = specifier.title;
