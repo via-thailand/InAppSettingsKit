@@ -562,10 +562,16 @@ CGRect IASKCGRectSwap(CGRect rect);
 	UITableViewCell* cell = [self tableView:tableView newCellForSpecifier:specifier];
 	cell.contentView.alpha = 1;
 	cell.textLabel.textColor = [UIColor colorWithRed:38.0/255.0 green:51.0/255.0 blue:115.0/255.0 alpha:1.0];
+	cell.detailTextLabel.textColor = [UIColor colorWithRed:122.0/255.0 green:136.0/255.0 blue:184.0/255.0 alpha:1.0];
 	
-	UIFont *font = [UIFont fontWithName:@"ViaNotoSans-Medium" size:cell.textLabel.font.pointSize];
-	if (font != nil) {
-		cell.textLabel.font = font;
+	UIFont *textLabelFont = [UIFont fontWithName:@"ViaNotoSans-Medium" size:cell.textLabel.font.pointSize];
+	if (textLabelFont != nil) {
+		cell.textLabel.font = textLabelFont;
+	}
+	
+	UIFont *detailLabelFont = [UIFont fontWithName:@"ViaNotoSans-Regular" size:cell.textLabel.font.pointSize];
+	if (detailLabelFont != nil) {
+		cell.detailTextLabel.font = detailLabelFont;
 	}
 	
 	if ([specifier.type isEqualToString:kIASKPSToggleSwitchSpecifier]) {
