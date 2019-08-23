@@ -13,6 +13,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765590DF743DE002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765580DF743DE002DB57D /* CoreGraphics.framework */; };
 		289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */; };
+		2E8CD425230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD424230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.m */; };
+		2E8CD427230FA1FD005CA907 /* ViaBusFanSettingsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD426230FA1FD005CA907 /* ViaBusFanSettingsHeaderView.xib */; };
 		575C01E8127CE845009FBEA2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575C01E7127CE845009FBEA2 /* MessageUI.framework */; };
 		6A1F35EE11490727003E6295 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1F35ED11490727003E6295 /* Icon.png */; };
 		6A9BBF591148F1DA003D97FA /* 20-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BBF581148F1DA003D97FA /* 20-gear2.png */; };
@@ -46,6 +48,9 @@
 		289233A80DB2D0DB0083E9F9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Classes/MainViewController.h; sourceTree = "<group>"; };
 		289233A90DB2D0DB0083E9F9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Classes/MainViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2E8CD423230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViaBusFanSettingsHeaderView.h; sourceTree = "<group>"; };
+		2E8CD424230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViaBusFanSettingsHeaderView.m; sourceTree = "<group>"; };
+		2E8CD426230FA1FD005CA907 /* ViaBusFanSettingsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViaBusFanSettingsHeaderView.xib; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* InAppSettingsKitSampleApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsKitSampleApp_Prefix.pch; sourceTree = "<group>"; };
 		575C01E7127CE845009FBEA2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6A1F35ED11490727003E6295 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -160,6 +165,9 @@
 				AAA468D6125CD9680057A662 /* CustomSubviewController.m */,
 				AAB8389E12846D850042FF80 /* CustomViewCell.h */,
 				AAB8389F12846D850042FF80 /* CustomViewCell.m */,
+				2E8CD423230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.h */,
+				2E8CD426230FA1FD005CA907 /* ViaBusFanSettingsHeaderView.xib */,
+				2E8CD424230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.m */,
 			);
 			name = "Main View";
 			sourceTree = "<group>";
@@ -391,6 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8CD427230FA1FD005CA907 /* ViaBusFanSettingsHeaderView.xib in Resources */,
 				6A9BBF591148F1DA003D97FA /* 20-gear2.png in Resources */,
 				6A1F35EE11490727003E6295 /* Icon.png in Resources */,
 				AAA468D9125CD9680057A662 /* CustomSubviewController.xib in Resources */,
@@ -418,6 +427,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8CD425230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* InAppSettingsKitSampleAppAppDelegate.m in Sources */,
 				289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */,

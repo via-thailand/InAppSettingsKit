@@ -23,6 +23,7 @@
 #import <InAppSettingsKit/IASKAppSettingsViewController.h>
 
 #import "CustomViewCell.h"
+#import "ViaBusFanSettingsHeaderView.h"
 
 @interface MainViewController()<UIPopoverControllerDelegate>
 - (void)settingDidChange:(NSNotification*)notification;
@@ -151,16 +152,19 @@ shouldPresentMailComposeViewController:(MFMailComposeViewController*)mailCompose
                         tableView:(UITableView *)tableView
         heightForHeaderForSection:(NSInteger)section {
     NSString *key = [settingsViewController.settingsReader keyForSection:section];
-	NSString *headerImageName = [settingsViewController.settingsReader headerSpecifierForSection:section].headerImageName;
-    if ([key isEqualToString:@"IASKLogo"]) {
-        return [UIImage imageNamed:@"Icon.png"].size.height + 25;
+	
+	BOOL isViaBusHeader = [settingsViewController.settingsReader headerSpecifierForSection:section].isViaBusHeader;
+	if (isViaBusHeader) {
+		return 50;
 	}
-	else if (headerImageName != nil) {
-		return [UIImage imageNamed:headerImageName].size.height + 10;
+	else {
+		if ([key isEqualToString:@"IASKLogo"]) {
+			return [UIImage imageNamed:@"Icon.png"].size.height + 25;
+		}
+		else if ([key isEqualToString:@"IASKCustomHeaderStyle"]) {
+			return 55.f;
+		}
 	}
-	else if ([key isEqualToString:@"IASKCustomHeaderStyle"]) {
-        return 55.f;
-    }
     return 0;
 }
 
@@ -168,39 +172,35 @@ shouldPresentMailComposeViewController:(MFMailComposeViewController*)mailCompose
                          tableView:(UITableView *)tableView 
            viewForHeaderForSection:(NSInteger)section {
 	
-	NSString *headerImageName = [settingsViewController.settingsReader headerSpecifierForSection:section].headerImageName;
+	BOOL isViaBusHeader = [settingsViewController.settingsReader headerSpecifierForSection:section].isViaBusHeader;
 	
-	if (headerImageName != nil) {
-		UIImage *image = [UIImage imageNamed:headerImageName];
-		UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 5, image.size.width, image.size.height)];
-		imageView.image = image;
-		imageView.contentMode = UIViewContentModeCenter;
-		UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, image.size.height + 10)];
-		view.backgroundColor = [UIColor clearColor];
-		[view addSubview:imageView];
+	if (isViaBusHeader) {
+		ViaBusFanSettingsHeaderView *view = [[NSBundle mainBundle] loadNibNamed:@"ViaBusFanSettingsHeaderView" owner:self options:nil][0];
 		return view;
 	}
+	else {
+		NSString *key = [settingsViewController.settingsReader keyForSection:section];
+		if ([key isEqualToString:@"IASKLogo"]) {
+			UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Icon.png"]];
+			imageView.contentMode = UIViewContentModeCenter;
+			return imageView;
+		} else if ([key isEqualToString:@"IASKCustomHeaderStyle"]) {
+			UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+			label.backgroundColor = [UIColor clearColor];
+			label.textAlignment = NSTextAlignmentCenter;
+			label.textColor = [UIColor redColor];
+			label.shadowColor = [UIColor whiteColor];
+			label.shadowOffset = CGSizeMake(0, 1);
+			label.numberOfLines = 0;
+			label.font = [UIFont boldSystemFontOfSize:16.f];
+			
+			//figure out the title from settingsbundle
+			label.text = [settingsViewController.settingsReader titleForSection:section];
+			
+			return label;
+		}
+	}
 	
-    NSString *key = [settingsViewController.settingsReader keyForSection:section];
-    if ([key isEqualToString:@"IASKLogo"]) {
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Icon.png"]];
-        imageView.contentMode = UIViewContentModeCenter;
-        return imageView;
-    } else if ([key isEqualToString:@"IASKCustomHeaderStyle"]) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-        label.backgroundColor = [UIColor clearColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor redColor];
-        label.shadowColor = [UIColor whiteColor];
-        label.shadowOffset = CGSizeMake(0, 1);
-        label.numberOfLines = 0;
-        label.font = [UIFont boldSystemFontOfSize:16.f];
-        
-        //figure out the title from settingsbundle
-        label.text = [settingsViewController.settingsReader titleForSection:section];
-        
-        return label;
-    }
 	return nil;
 }
 

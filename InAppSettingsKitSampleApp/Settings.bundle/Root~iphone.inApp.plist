@@ -7,12 +7,12 @@
 		<dict>
 			<key>FooterText</key>
 			<string>Root~iphone.inApp.plist is used in-App on iPhone</string>
-			<key>Title</key>
-			<string>TOGGLE_SWITCH_TITLE</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
-            <key>IASKHeaderImageName</key>
-            <string>icFanOutlined</string>
+			<key>IASKHeaderImageName</key>
+			<string>icFanOutlined</string>
+			<key>IASKIsViaBusHeader</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
