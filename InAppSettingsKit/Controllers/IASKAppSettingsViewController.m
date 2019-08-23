@@ -179,9 +179,15 @@ CGRect IASKCGRectSwap(CGRect rect);
 		self.navigationItem.rightBarButtonItem = buttonItem;
 	}
 	
-	if (!self.title) {
-		self.title = NSLocalizedString(@"Settings", @"");
+	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
+	titleLabel.text = NSLocalizedString(@"Settings", @"");
+	titleLabel.textAlignment = NSTextAlignmentCenter;
+	UIFont *font = [UIFont fontWithName:@"ViaNotoSans-SemiBold" size:20];
+	if (font) {
+		titleLabel.font = font;
 	}
+	titleLabel.textColor = [UIColor colorWithRed:38.0/255.0 green:51.0/255.0 blue:115.0/255.0 alpha:1.0];
+	self.navigationItem.titleView = titleLabel;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
