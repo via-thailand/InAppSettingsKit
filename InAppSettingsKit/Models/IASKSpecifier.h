@@ -75,4 +75,5 @@
 - (NSString *)radioGroupValue;
 - (NSString *)disabledKey;
 - (NSString *)headerImageName;
+- (BOOL)isViaBusHeader;
 @end

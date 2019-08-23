@@ -96,6 +96,7 @@
 
 #define kIASKDisabledKey					  @"IASKDisabledKey"
 #define kIASKHeaderImageName			      @"IASKHeaderImageName"
+#define kIASKIsViaBusHeader			      	  @"IASKIsViaBusHeader"
 
 // IASKChildTitle can be set if IASKViewControllerClass is set to IASKAppSettingsWebViewController.
 // If IASKChildTitle is set, the navigation title is fixed to it; otherwise, the title value is used and is overridden by the HTML title tag

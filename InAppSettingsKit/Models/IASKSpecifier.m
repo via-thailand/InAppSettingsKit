@@ -467,4 +467,14 @@
 	return [_specifierDict objectForKey:kIASKHeaderImageName];
 }
 
+- (BOOL)isViaBusHeader {
+	NSNumber *result = [_specifierDict objectForKey:kIASKIsViaBusHeader];
+	if (result == nil) {
+		return NO;
+	}
+	else {
+		return [result boolValue];
+	}
+}
+
 @end
