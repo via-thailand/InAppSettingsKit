@@ -561,6 +561,12 @@ CGRect IASKCGRectSwap(CGRect rect);
 	
 	UITableViewCell* cell = [self tableView:tableView newCellForSpecifier:specifier];
 	cell.contentView.alpha = 1;
+	cell.textLabel.textColor = [UIColor colorWithRed:38.0/255.0 green:51.0/255.0 blue:115.0/255.0 alpha:1.0];
+	
+	UIFont *font = [UIFont fontWithName:@"ViaNotoSans-Medium" size:cell.textLabel.font.pointSize];
+	if (font != nil) {
+		cell.textLabel.font = font;
+	}
 	
 	if ([specifier.type isEqualToString:kIASKPSToggleSwitchSpecifier]) {
 		cell.textLabel.text = specifier.title;
