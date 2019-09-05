@@ -603,8 +603,10 @@ CGRect IASKCGRectSwap(CGRect rect);
 		
 		if (specifier.disabledKey != nil) {
 			BOOL isDisabled = [[self.settingsStore objectForKey:specifier.disabledKey] boolValue];
-			toggle.enabled = !isDisabled;
-			cell.contentView.alpha = 0.4;
+			if (isDisabled) {
+				toggle.enabled = NO;
+				cell.contentView.alpha = 0.4;
+			}
 		}
 	}
 	else if ([specifier.type isEqualToString:kIASKPSMultiValueSpecifier]) {
