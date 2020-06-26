@@ -15,6 +15,7 @@
 		289233AE0DB2D0DB0083E9F9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289233A90DB2D0DB0083E9F9 /* MainViewController.m */; };
 		2E8CD425230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E8CD424230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.m */; };
 		2E8CD427230FA1FD005CA907 /* ViaBusFanSettingsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD426230FA1FD005CA907 /* ViaBusFanSettingsHeaderView.xib */; };
+		2E8CD42F230FB529005CA907 /* ViaNotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E8CD42E230FB529005CA907 /* ViaNotoSans-Medium.ttf */; };
 		575C01E8127CE845009FBEA2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575C01E7127CE845009FBEA2 /* MessageUI.framework */; };
 		6A1F35EE11490727003E6295 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A1F35ED11490727003E6295 /* Icon.png */; };
 		6A9BBF591148F1DA003D97FA /* 20-gear2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A9BBF581148F1DA003D97FA /* 20-gear2.png */; };
@@ -51,6 +52,7 @@
 		2E8CD423230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViaBusFanSettingsHeaderView.h; sourceTree = "<group>"; };
 		2E8CD424230FA1B2005CA907 /* ViaBusFanSettingsHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViaBusFanSettingsHeaderView.m; sourceTree = "<group>"; };
 		2E8CD426230FA1FD005CA907 /* ViaBusFanSettingsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViaBusFanSettingsHeaderView.xib; sourceTree = "<group>"; };
+		2E8CD42E230FB529005CA907 /* ViaNotoSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ViaNotoSans-Medium.ttf"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* InAppSettingsKitSampleApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppSettingsKitSampleApp_Prefix.pch; sourceTree = "<group>"; };
 		575C01E7127CE845009FBEA2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6A1F35ED11490727003E6295 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2E8CD42E230FB529005CA907 /* ViaNotoSans-Medium.ttf */,
 				AAA8D0C322C14BD700631015 /* Settings.bundle */,
 				AA1552131F79054700F2CEA1 /* IASKLocalizable.strings */,
 				AA092DC415B73A0500081FBC /* settings_about.html */,
@@ -404,6 +407,7 @@
 				6A1F35EE11490727003E6295 /* Icon.png in Resources */,
 				AAA468D9125CD9680057A662 /* CustomSubviewController.xib in Resources */,
 				AAF478871A239A1A000A0A74 /* Launch.xib in Resources */,
+				2E8CD42F230FB529005CA907 /* ViaNotoSans-Medium.ttf in Resources */,
 				E42C312122C1270F00F43889 /* Main.storyboard in Resources */,
 				AAB8389B12846D110042FF80 /* CustomViewCell.xib in Resources */,
 				FB81CA08155BC7C900CEF887 /* facebook.png in Resources */,

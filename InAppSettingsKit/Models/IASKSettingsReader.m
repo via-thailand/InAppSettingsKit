@@ -255,8 +255,11 @@
 	}
 	else
 	{
-		NSString* stringTitleId = (NSString*)titleId;
-		return [self.settingsBundle localizedStringForKey:stringTitleId value:stringTitleId table:self.localizationTable];
+        NSString* stringTitleId = (NSString*)titleId;
+        NSString *currentLanguageCode = [[NSUserDefaults standardUserDefaults] objectForKey:@"LCLCurrentLanguageKey"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:currentLanguageCode ofType:@"lproj"];
+        NSBundle *bundle = [NSBundle bundleWithPath:path];
+        return [bundle localizedStringForKey:stringTitleId value:nil table:nil];
 	}
 }
 

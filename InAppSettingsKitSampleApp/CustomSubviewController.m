@@ -19,7 +19,7 @@
 #import <InAppSettingsKit/IASKSpecifier.h>
 
 @implementation CustomSubviewController
-
+	
 - (id)initWithFile:(NSString*)file specifier:(IASKSpecifier*)specifier {
 	if ((self = [super init])) {
 		// custom initialization

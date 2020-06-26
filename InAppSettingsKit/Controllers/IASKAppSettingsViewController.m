@@ -173,9 +173,16 @@ CGRect IASKCGRectSwap(CGRect rect);
     [self.tableView addGestureRecognizer:tapGesture];
 
 	if (_showDoneButton) {
-		UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-																					target:self
-																					action:@selector(dismiss:)];
+        
+        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"DONE", "") style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+        
+        UIFont *font = [UIFont fontWithName:@"ViaNotoSans-SemiBold" size:18];
+        if (font) {
+            [buttonItem setTitleTextAttributes:@{NSFontAttributeName:font} forState:UIControlStateNormal];
+            [buttonItem setTitleTextAttributes:@{NSFontAttributeName:font} forState:UIControlStateHighlighted];
+        }
+        
+        buttonItem.tintColor = self.view.tintColor;
 		self.navigationItem.rightBarButtonItem = buttonItem;
 	}
 	
@@ -188,6 +195,9 @@ CGRect IASKCGRectSwap(CGRect rect);
 	}
 	titleLabel.textColor = [UIColor colorWithRed:38.0/255.0 green:51.0/255.0 blue:115.0/255.0 alpha:1.0];
 	self.navigationItem.titleView = titleLabel;
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    [self localizedText];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -419,6 +429,26 @@ CGRect IASKCGRectSwap(CGRect rect);
                                                                                            forKey:[slider key]]];
 }
 
+#pragma mark - Localized
+- (void)localizedText {
+    NSString *currentLanguageCode = [[NSUserDefaults standardUserDefaults] objectForKey:@"LCLCurrentLanguageKey"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:currentLanguageCode ofType:@"lproj"];
+    NSBundle *bundle = [NSBundle bundleWithPath:path];
+    
+    UILabel *titleLabel = (UILabel *)self.navigationItem.titleView;
+    if (titleLabel != nil) {
+        titleLabel.text = [bundle localizedStringForKey:@"Settings" value:nil table:nil];
+    }
+    
+    UIBarButtonItem *doneButton = (UIBarButtonItem *)self.navigationItem.rightBarButtonItem;
+    if (doneButton != nil) {
+        doneButton.title = [bundle localizedStringForKey:@"DONE" value:nil table:nil];
+    }
+    
+    [self.tableView beginUpdates];
+    [self.tableView reloadData];
+    [self.tableView endUpdates];
+}
 
 #pragma mark -
 #pragma mark UITableView Functions

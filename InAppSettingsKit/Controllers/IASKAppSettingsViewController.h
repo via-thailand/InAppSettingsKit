@@ -91,6 +91,7 @@ shouldPresentMailComposeViewController:(MFMailComposeViewController*)mailCompose
 @property (nonatomic) IBInspectable BOOL neverShowPrivacySettings;
 @property (nonatomic) IBInspectable BOOL cellLayoutMarginsFollowReadableWidth;
 
+- (void)localizedText;
 - (void)synchronizeSettings;
 - (IBAction)dismiss:(id)sender;
 - (void)setHiddenKeys:(NSSet*)hiddenKeys animated:(BOOL)animated;

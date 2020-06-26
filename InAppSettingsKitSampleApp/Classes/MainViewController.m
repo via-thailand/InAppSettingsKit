@@ -37,6 +37,7 @@
 @synthesize appSettingsViewController, tabAppSettingsViewController;
 
 - (IASKAppSettingsViewController*)appSettingsViewController {
+	appSettingsViewController = nil;
 	if (!appSettingsViewController) {
 		appSettingsViewController = [[IASKAppSettingsViewController alloc] init];
         appSettingsViewController.cellLayoutMarginsFollowReadableWidth = NO;
