@@ -635,6 +635,7 @@ CGRect IASKCGRectSwap(CGRect rect);
 			BOOL isDisabled = [[self.settingsStore objectForKey:specifier.disabledKey] boolValue];
 			if (isDisabled) {
 				toggle.enabled = NO;
+                toggle.on = NO;
 				cell.contentView.alpha = 0.4;
 			}
 		}
