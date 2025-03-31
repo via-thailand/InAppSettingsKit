@@ -176,7 +176,16 @@ CGRect IASKCGRectSwap(CGRect rect);
         
         UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"DONE", "") style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
         
-        UIFont *font = [UIFont fontWithName:@"ViaNotoSans-SemiBold" size:18];
+        UIFontDescriptor *fontDescriptor = [[UIFontDescriptor alloc] initWithFontAttributes:@{
+            UIFontDescriptorNameAttribute: @"ViaNotoSans-SemiBold", // Primary font
+            UIFontDescriptorCascadeListAttribute: @[
+                [[UIFontDescriptor alloc] initWithFontAttributes:@{
+                    UIFontDescriptorNameAttribute: [NSString stringWithFormat:@"NotoSansLao-SemiBold"]
+                }]
+            ]
+        }];
+        
+        UIFont *font = [UIFont fontWithDescriptor: fontDescriptor size: 18];
         if (font) {
             [buttonItem setTitleTextAttributes:@{NSFontAttributeName:font} forState:UIControlStateNormal];
             [buttonItem setTitleTextAttributes:@{NSFontAttributeName:font} forState:UIControlStateHighlighted];
@@ -189,7 +198,17 @@ CGRect IASKCGRectSwap(CGRect rect);
 	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 80, 40)];
 	titleLabel.text = NSLocalizedString(@"Settings", @"");
 	titleLabel.textAlignment = NSTextAlignmentCenter;
-	UIFont *font = [UIFont fontWithName:@"ViaNotoSans-SemiBold" size:20];
+    
+    UIFontDescriptor *fontDescriptor = [[UIFontDescriptor alloc] initWithFontAttributes:@{
+        UIFontDescriptorNameAttribute: @"ViaNotoSans-SemiBold", // Primary font
+        UIFontDescriptorCascadeListAttribute: @[
+            [[UIFontDescriptor alloc] initWithFontAttributes:@{
+                UIFontDescriptorNameAttribute: [NSString stringWithFormat:@"NotoSansLao-SemiBold"]
+            }]
+        ]
+    }];
+    
+    UIFont *font = [UIFont fontWithDescriptor:fontDescriptor size:20];
 	if (font) {
 		titleLabel.font = font;
 	}
@@ -599,13 +618,29 @@ CGRect IASKCGRectSwap(CGRect rect);
 	cell.contentView.alpha = 1;
 	cell.textLabel.textColor = [UIColor colorWithRed:38.0/255.0 green:51.0/255.0 blue:115.0/255.0 alpha:1.0];
 	cell.detailTextLabel.textColor = [UIColor colorWithRed:122.0/255.0 green:136.0/255.0 blue:184.0/255.0 alpha:1.0];
-	
-	UIFont *textLabelFont = [UIFont fontWithName:@"ViaNotoSans-Medium" size:cell.textLabel.font.pointSize];
+    
+    UIFontDescriptor *fontDescriptor1 = [[UIFontDescriptor alloc] initWithFontAttributes:@{
+        UIFontDescriptorNameAttribute: @"ViaNotoSans-Medium", // Primary font
+        UIFontDescriptorCascadeListAttribute: @[
+            [[UIFontDescriptor alloc] initWithFontAttributes:@{
+                UIFontDescriptorNameAttribute: [NSString stringWithFormat:@"NotoSansLao-Medium"]
+            }]
+        ]
+    }];
+    UIFont *textLabelFont = [UIFont fontWithDescriptor: fontDescriptor1 size: cell.textLabel.font.pointSize];
 	if (textLabelFont != nil) {
 		cell.textLabel.font = textLabelFont;
 	}
-	
-	UIFont *detailLabelFont = [UIFont fontWithName:@"ViaNotoSans-Regular" size:cell.textLabel.font.pointSize];
+    
+    UIFontDescriptor *fontDescriptor2 = [[UIFontDescriptor alloc] initWithFontAttributes:@{
+        UIFontDescriptorNameAttribute: @"ViaNotoSans-Regular", // Primary font
+        UIFontDescriptorCascadeListAttribute: @[
+            [[UIFontDescriptor alloc] initWithFontAttributes:@{
+                UIFontDescriptorNameAttribute: [NSString stringWithFormat:@"NotoSansLao-Regular"]
+            }]
+        ]
+    }];
+    UIFont *detailLabelFont = [UIFont fontWithDescriptor: fontDescriptor2 size: cell.textLabel.font.pointSize];
 	if (detailLabelFont != nil) {
 		cell.detailTextLabel.font = detailLabelFont;
 	}
